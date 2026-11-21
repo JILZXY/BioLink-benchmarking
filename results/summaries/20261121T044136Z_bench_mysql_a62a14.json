@@ -1,0 +1,179 @@
+{
+  "run_id": "20261121T044136Z_bench_mysql_a62a14",
+  "mode": "benchmark",
+  "engine": "mysql",
+  "model": "relational",
+  "dataset_id": "synthetic_50000_seed_20261120",
+  "seed": 20261120,
+  "started_at_utc": "2026-11-21T04:41:36Z",
+  "finished_at_utc": "2026-11-21T04:42:05Z",
+  "timings_ms": {
+    "connection_ms": 19.3989,
+    "schema_ms": 555.5433,
+    "load_ms": 8744.7042,
+    "index_ms": 727.6695,
+    "cleanup_ms": 3974.5114
+  },
+  "storage_bytes": 57638912,
+  "engine_info": {
+    "engine": "mysql",
+    "server_version": "8.4.13",
+    "edition": "MySQL Community Server - GPL",
+    "innodb_buffer_pool_size_bytes": 134217728,
+    "driver": "mysql-connector-python 26.10.0"
+  },
+  "docker_info": {
+    "available": true,
+    "container_name": "biolink-bench-mysql",
+    "image": "mysql:8.4.13",
+    "image_id": "sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902",
+    "repo_digests": [
+      "mysql@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902"
+    ],
+    "status": "running",
+    "health_status": "healthy",
+    "oom_killed": false,
+    "mem_limit_bytes": 805306368,
+    "mem_limit_mb": 768.0,
+    "nano_cpus": 2000000000
+  },
+  "docker_resources": {
+    "samples_count": 9,
+    "peak_memory_mib": 614.8,
+    "avg_memory_mib": 532.9,
+    "peak_cpu_pct": 111.73,
+    "avg_cpu_pct": 76.86,
+    "oom_killed": false
+  },
+  "host_info": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64",
+    "python": "3.14.10",
+    "docker": "Docker version 29.9.3, build 5457199"
+  },
+  "operations": {
+    "R1_taxon_search": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 1.2552,
+      "p95_ms": 1.5486,
+      "max_ms": 1.654,
+      "min_ms": 1.1038,
+      "mean_ms": 1.292,
+      "ops_per_sec": 774.01
+    },
+    "R2_filtered_assertions": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 1.7458,
+      "p95_ms": 3.5998,
+      "max_ms": 4.1231,
+      "min_ms": 1.4097,
+      "mean_ms": 2.0755,
+      "ops_per_sec": 481.82
+    },
+    "R3_transactional_assertion_outbox": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 5.2799,
+      "p95_ms": 7.9542,
+      "max_ms": 9.4842,
+      "min_ms": 4.648,
+      "mean_ms": 5.536,
+      "ops_per_sec": 180.64
+    },
+    "R4_batch_import_insert": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 4.9353,
+      "p95_ms": 5.9247,
+      "max_ms": 6.746,
+      "min_ms": 4.341,
+      "mean_ms": 5.0517,
+      "ops_per_sec": 197.95
+    }
+  },
+  "errors": [],
+  "artifacts": {
+    "raw_csv": "results\\raw\\20261121T044136Z_bench_mysql_a62a14.csv",
+    "summary_json": "results\\summaries\\20261121T044136Z_bench_mysql_a62a14.json",
+    "log_file": "results\\logs\\20261121T044136Z_bench_mysql_a62a14.log"
+  },
+  "dataset_integrity": {
+    "manifest_path": "datasets/manifests/synthetic_50000_seed_20261120_manifest.json",
+    "manifest_sha256": "00fef827633f4c730bb2e73ed292199fe06463f128cab63b303aab0554b9b6eb",
+    "file_checksums": {
+      "taxa.jsonl": "f753f06024936cd6038d5a8b227bbe1f8b11297d06408b8a98f8b3e3652ce6ce",
+      "taxon_names.jsonl": "9864fc646f4055820d3cd6027f373c0f695635ff5520b76cd849be3d00e5b4f4",
+      "taxon_identifiers.jsonl": "593087657bfe703ebb5a058ad8e1a038a75e032021910f327c2ad9e266f2b38c",
+      "localities.jsonl": "2ce28d8be8d92b6c8de080ed73bcc8005391b70e0c116fc4549a97e863dc77d6",
+      "sources.jsonl": "772a47bb2d4e6dacaede5d836b6696e14f6d9858d581a6a164217800a161c9f0",
+      "source_versions.jsonl": "0e45760a1f27638f530972476a90dad5945789c6af29547bd05f1c348c06bc46",
+      "interaction_types.jsonl": "40d5d350d3e6fe5983acab0af58ec25aefcb76cb5c1eba77e95ae5fbe30df34d",
+      "evidences.jsonl": "60436529c39271356222c05c22a2775fd3daedbf3895ce234feb95cf27066f7b",
+      "assertions.jsonl": "591b6a521725d1f51dbc857555001f3dd22da0584ce978dea5b70350200025ea",
+      "assertion_evidences.jsonl": "b0671eef43df9e880198c5e124113de31df8b88e06567cc6824323c2fee2f723",
+      "import_batches.jsonl": "98b0d56d994b7bd4657d285e521ecb5e70eda1f8c11192afe9862438b35f8d91",
+      "import_records.jsonl": "691e72360d693c1769684d93ee0526f795fd26acfe3eb6718f7cc4d07b0f1f95",
+      "review_events.jsonl": "0188b72e9cb03ca71943ac7549ee3cf9a6213ccc56d4e1eb72bbb00b318e868f",
+      "taxon_dossiers.jsonl": "44c03568c83451b63943333c5f93ee658868b1f506715f0f9b9ad3df13b40529",
+      "study_dossiers.jsonl": "5b2fe492021376d5448abd3afd1d123f3f3a545e064aed21624accbb08f47b18",
+      "raw_source_records.jsonl": "a2032f5ab49861f15b562ab18c6eb9f66cdf71c5fd7ffbba028ab2c0acfd4102"
+    },
+    "entity_counts": {
+      "taxa": 1300,
+      "taxon_names": 2600,
+      "taxon_identifiers": 1300,
+      "localities": 6,
+      "sources": 40,
+      "source_versions": 40,
+      "interaction_types": 3,
+      "evidences": 50000,
+      "assertions": 50000,
+      "published_assertions": 42523,
+      "assertion_evidences": 50000,
+      "import_batches": 10,
+      "import_records": 50000,
+      "review_events": 45071,
+      "taxon_dossiers": 1300,
+      "study_dossiers": 40,
+      "raw_source_records": 50000
+    }
+  },
+  "benchmark_config": {
+    "warmup_iterations_per_operation": 5,
+    "measured_iterations_per_operation": 30,
+    "operation_timeout_seconds": 60,
+    "docker_stats_interval_seconds": 0.5,
+    "max_total_environment_memory_mb": 4096,
+    "bind_host": "127.0.0.1",
+    "container_memory_limit_mb": 768.0,
+    "container_cpu_limit": 2.0,
+    "compose_file": "docker/compose.yaml",
+    "engine_settings": {
+      "observed_innodb_buffer_pool_bytes": 134217728,
+      "source": "engine_info; mounted my.cnf is ignored by this Windows Docker setup"
+    },
+    "credentials_excluded": true
+  }
+}

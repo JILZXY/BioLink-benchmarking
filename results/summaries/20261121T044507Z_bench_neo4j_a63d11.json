@@ -1,0 +1,181 @@
+{
+  "run_id": "20261121T044507Z_bench_neo4j_a63d11",
+  "mode": "benchmark",
+  "engine": "neo4j",
+  "model": "graph",
+  "dataset_id": "synthetic_50000_seed_20261120",
+  "seed": 20261120,
+  "started_at_utc": "2026-11-21T04:45:07Z",
+  "finished_at_utc": "2026-11-21T04:45:44Z",
+  "timings_ms": {
+    "connection_ms": 112.4023,
+    "schema_ms": 252.1238,
+    "load_ms": 13839.9143,
+    "index_ms": 55.4446,
+    "cleanup_ms": 0.0
+  },
+  "storage_bytes": 86428,
+  "engine_info": {
+    "engine": "neo4j",
+    "server_version": "2026.10.2",
+    "edition": "community",
+    "driver": "neo4j 6.4.1 (Bolt)"
+  },
+  "docker_info": {
+    "available": true,
+    "container_name": "biolink-bench-neo4j",
+    "image": "neo4j:2026.10.2-community",
+    "image_id": "sha256:88458a76de0704f543bab66b7df1984b36ac3f24de3c2e2d74c8fa1972ebb8cf",
+    "repo_digests": [
+      "neo4j@sha256:88458a76de0704f543bab66b7df1984b36ac3f24de3c2e2d74c8fa1972ebb8cf"
+    ],
+    "status": "running",
+    "health_status": "healthy",
+    "oom_killed": false,
+    "mem_limit_bytes": 1073741824,
+    "mem_limit_mb": 1024.0,
+    "nano_cpus": 2000000000
+  },
+  "docker_resources": {
+    "samples_count": 13,
+    "peak_memory_mib": 934.2,
+    "avg_memory_mib": 769.83,
+    "peak_cpu_pct": 198.38,
+    "avg_cpu_pct": 129.21,
+    "oom_killed": false
+  },
+  "host_info": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64",
+    "python": "3.14.10",
+    "docker": "Docker version 29.9.3, build 5457199"
+  },
+  "operations": {
+    "G1_taxon_neighbors": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 54.5967,
+      "p95_ms": 58.3998,
+      "max_ms": 63.6441,
+      "min_ms": 52.3849,
+      "mean_ms": 55.1109,
+      "ops_per_sec": 18.15
+    },
+    "G2_filtered_subgraph": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 12.9444,
+      "p95_ms": 15.9753,
+      "max_ms": 18.1707,
+      "min_ms": 11.0406,
+      "mean_ms": 13.2075,
+      "ops_per_sec": 75.71
+    },
+    "G3_distinct_partner_count": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 70.8017,
+      "p95_ms": 78.25,
+      "max_ms": 80.9699,
+      "min_ms": 67.6725,
+      "mean_ms": 71.3823,
+      "ops_per_sec": 14.01
+    },
+    "G4_idempotent_assertion_upsert": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 4.8231,
+      "p95_ms": 9.5046,
+      "max_ms": 14.2764,
+      "min_ms": 3.6915,
+      "mean_ms": 5.2622,
+      "ops_per_sec": 190.03
+    }
+  },
+  "errors": [
+    "TransientError: {neo4j_code: Neo.TransientError.General.MemoryPoolOutOfMemoryError} {message: The allocation of an extra 2.0 MiB would use more than the limit 268.8 MiB. Currently using 267.0 MiB. dbms.memory.transaction.total.max threshold reached} {gql_status: 51N72} {gql_status_description: error: system configuration or operation exception - memory pool out of memory. Failed to allocate memory in a memory pool. See dbms.memory.transaction.total.max in the neo4j.conf file.}"
+  ],
+  "artifacts": {
+    "raw_csv": "results\\raw\\20261121T044507Z_bench_neo4j_a63d11.csv",
+    "summary_json": "results\\summaries\\20261121T044507Z_bench_neo4j_a63d11.json",
+    "log_file": "results\\logs\\20261121T044507Z_bench_neo4j_a63d11.log"
+  },
+  "dataset_integrity": {
+    "manifest_path": "datasets/manifests/synthetic_50000_seed_20261120_manifest.json",
+    "manifest_sha256": "00fef827633f4c730bb2e73ed292199fe06463f128cab63b303aab0554b9b6eb",
+    "file_checksums": {
+      "taxa.jsonl": "f753f06024936cd6038d5a8b227bbe1f8b11297d06408b8a98f8b3e3652ce6ce",
+      "taxon_names.jsonl": "9864fc646f4055820d3cd6027f373c0f695635ff5520b76cd849be3d00e5b4f4",
+      "taxon_identifiers.jsonl": "593087657bfe703ebb5a058ad8e1a038a75e032021910f327c2ad9e266f2b38c",
+      "localities.jsonl": "2ce28d8be8d92b6c8de080ed73bcc8005391b70e0c116fc4549a97e863dc77d6",
+      "sources.jsonl": "772a47bb2d4e6dacaede5d836b6696e14f6d9858d581a6a164217800a161c9f0",
+      "source_versions.jsonl": "0e45760a1f27638f530972476a90dad5945789c6af29547bd05f1c348c06bc46",
+      "interaction_types.jsonl": "40d5d350d3e6fe5983acab0af58ec25aefcb76cb5c1eba77e95ae5fbe30df34d",
+      "evidences.jsonl": "60436529c39271356222c05c22a2775fd3daedbf3895ce234feb95cf27066f7b",
+      "assertions.jsonl": "591b6a521725d1f51dbc857555001f3dd22da0584ce978dea5b70350200025ea",
+      "assertion_evidences.jsonl": "b0671eef43df9e880198c5e124113de31df8b88e06567cc6824323c2fee2f723",
+      "import_batches.jsonl": "98b0d56d994b7bd4657d285e521ecb5e70eda1f8c11192afe9862438b35f8d91",
+      "import_records.jsonl": "691e72360d693c1769684d93ee0526f795fd26acfe3eb6718f7cc4d07b0f1f95",
+      "review_events.jsonl": "0188b72e9cb03ca71943ac7549ee3cf9a6213ccc56d4e1eb72bbb00b318e868f",
+      "taxon_dossiers.jsonl": "44c03568c83451b63943333c5f93ee658868b1f506715f0f9b9ad3df13b40529",
+      "study_dossiers.jsonl": "5b2fe492021376d5448abd3afd1d123f3f3a545e064aed21624accbb08f47b18",
+      "raw_source_records.jsonl": "a2032f5ab49861f15b562ab18c6eb9f66cdf71c5fd7ffbba028ab2c0acfd4102"
+    },
+    "entity_counts": {
+      "taxa": 1300,
+      "taxon_names": 2600,
+      "taxon_identifiers": 1300,
+      "localities": 6,
+      "sources": 40,
+      "source_versions": 40,
+      "interaction_types": 3,
+      "evidences": 50000,
+      "assertions": 50000,
+      "published_assertions": 42523,
+      "assertion_evidences": 50000,
+      "import_batches": 10,
+      "import_records": 50000,
+      "review_events": 45071,
+      "taxon_dossiers": 1300,
+      "study_dossiers": 40,
+      "raw_source_records": 50000
+    }
+  },
+  "benchmark_config": {
+    "warmup_iterations_per_operation": 5,
+    "measured_iterations_per_operation": 30,
+    "operation_timeout_seconds": 60,
+    "docker_stats_interval_seconds": 0.5,
+    "max_total_environment_memory_mb": 4096,
+    "bind_host": "127.0.0.1",
+    "container_memory_limit_mb": 1024.0,
+    "container_cpu_limit": 2.0,
+    "compose_file": "docker/compose.yaml",
+    "engine_settings": {
+      "heap_initial": "256m",
+      "heap_max": "384m",
+      "pagecache": "256m"
+    },
+    "credentials_excluded": true
+  }
+}

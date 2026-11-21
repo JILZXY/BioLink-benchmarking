@@ -1,0 +1,182 @@
+{
+  "run_id": "20261121T043459Z_bench_postgresql_4cb5de",
+  "mode": "benchmark",
+  "engine": "postgresql",
+  "model": "relational",
+  "dataset_id": "synthetic_10000_seed_20261120",
+  "seed": 20261120,
+  "started_at_utc": "2026-11-21T04:34:59Z",
+  "finished_at_utc": "2026-11-21T04:35:14Z",
+  "timings_ms": {
+    "connection_ms": 8.744,
+    "schema_ms": 24.7569,
+    "load_ms": 1366.6972,
+    "index_ms": 62.3049,
+    "cleanup_ms": 3906.9542
+  },
+  "storage_bytes": 23049919,
+  "engine_info": {
+    "engine": "postgresql",
+    "server_version": "18.7 (Debian 18.7-1.pgdg13+5)",
+    "version_detail": "PostgreSQL 18.7 (Debian 18.7-1.pgdg13+5) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+    "shared_buffers": "192MB",
+    "driver": "psycopg 3.3.9"
+  },
+  "docker_info": {
+    "available": true,
+    "container_name": "biolink-bench-postgresql",
+    "image": "postgres:18.7",
+    "image_id": "sha256:eb63372c1e05c755f55fa30cbd07aecc443676fc6c0fa90b9002d01537841e1a",
+    "repo_digests": [
+      "postgres@sha256:eb63372c1e05c755f55fa30cbd07aecc443676fc6c0fa90b9002d01537841e1a"
+    ],
+    "status": "running",
+    "health_status": "healthy",
+    "oom_killed": false,
+    "mem_limit_bytes": 805306368,
+    "mem_limit_mb": 768.0,
+    "nano_cpus": 2000000000
+  },
+  "docker_resources": {
+    "samples_count": 5,
+    "peak_memory_mib": 91.7,
+    "avg_memory_mib": 87.09,
+    "peak_cpu_pct": 103.84,
+    "avg_cpu_pct": 58.17,
+    "oom_killed": false
+  },
+  "host_info": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64",
+    "python": "3.14.10",
+    "docker": "Docker version 29.9.3, build 5457199"
+  },
+  "operations": {
+    "R1_taxon_search": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 0.5014,
+      "p95_ms": 0.6596,
+      "max_ms": 1.042,
+      "min_ms": 0.4093,
+      "mean_ms": 0.5297,
+      "ops_per_sec": 1887.94
+    },
+    "R2_filtered_assertions": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 1.8861,
+      "p95_ms": 2.5816,
+      "max_ms": 6.1625,
+      "min_ms": 1.049,
+      "mean_ms": 1.9566,
+      "ops_per_sec": 511.09
+    },
+    "R3_transactional_assertion_outbox": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 2.8204,
+      "p95_ms": 3.8775,
+      "max_ms": 5.0019,
+      "min_ms": 2.4731,
+      "mean_ms": 3.0041,
+      "ops_per_sec": 332.88
+    },
+    "R4_batch_import_insert": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 3.3225,
+      "p95_ms": 3.9543,
+      "max_ms": 4.3049,
+      "min_ms": 2.945,
+      "mean_ms": 3.4069,
+      "ops_per_sec": 293.52
+    }
+  },
+  "errors": [],
+  "artifacts": {
+    "raw_csv": "results\\raw\\20261121T043459Z_bench_postgresql_4cb5de.csv",
+    "summary_json": "results\\summaries\\20261121T043459Z_bench_postgresql_4cb5de.json",
+    "log_file": "results\\logs\\20261121T043459Z_bench_postgresql_4cb5de.log"
+  },
+  "dataset_integrity": {
+    "manifest_path": "datasets/manifests/synthetic_10000_seed_20261120_manifest.json",
+    "manifest_sha256": "0e2e17c2edd6539dc5130ee47293c1ef0c9794052bb766081120061624247c86",
+    "file_checksums": {
+      "taxa.jsonl": "f753f06024936cd6038d5a8b227bbe1f8b11297d06408b8a98f8b3e3652ce6ce",
+      "taxon_names.jsonl": "9864fc646f4055820d3cd6027f373c0f695635ff5520b76cd849be3d00e5b4f4",
+      "taxon_identifiers.jsonl": "593087657bfe703ebb5a058ad8e1a038a75e032021910f327c2ad9e266f2b38c",
+      "localities.jsonl": "2ce28d8be8d92b6c8de080ed73bcc8005391b70e0c116fc4549a97e863dc77d6",
+      "sources.jsonl": "772a47bb2d4e6dacaede5d836b6696e14f6d9858d581a6a164217800a161c9f0",
+      "source_versions.jsonl": "2c346bac6e4c653d4a7e50e50869907b78875f3302f113243fbe735df15fcff5",
+      "interaction_types.jsonl": "40d5d350d3e6fe5983acab0af58ec25aefcb76cb5c1eba77e95ae5fbe30df34d",
+      "evidences.jsonl": "c3e47fa7a742ac4edc427bd9e0916d76731838a545b5bba2e340a4317040718a",
+      "assertions.jsonl": "c8a8f5e3dbe0c744e3c64bed348855d0858a28fc4fc8065d3965ca5208e01777",
+      "assertion_evidences.jsonl": "6881c6db5a40e03fc3710a98786c7ca81114e389427cea4ac38938d97b864a9e",
+      "import_batches.jsonl": "e1b748235799b6324367d857b8837da045b2cd37bc4ac08463a7713901e2d6f5",
+      "import_records.jsonl": "92ef154cd2e7150e4377563a8f5bff466609d2fefd39028640ea1645f6454156",
+      "review_events.jsonl": "080167c067c4c76b227b41771b1fd05381e2f9a0f944e1e91513b92e9f3aeec0",
+      "taxon_dossiers.jsonl": "44c03568c83451b63943333c5f93ee658868b1f506715f0f9b9ad3df13b40529",
+      "study_dossiers.jsonl": "5b2fe492021376d5448abd3afd1d123f3f3a545e064aed21624accbb08f47b18",
+      "raw_source_records.jsonl": "f190dfe3cb83cb740f079d6f9e3be9640cf917891f61aa2aa83fbd0a5fc1c578"
+    },
+    "entity_counts": {
+      "taxa": 1300,
+      "taxon_names": 2600,
+      "taxon_identifiers": 1300,
+      "localities": 6,
+      "sources": 40,
+      "source_versions": 40,
+      "interaction_types": 3,
+      "evidences": 10000,
+      "assertions": 10000,
+      "published_assertions": 8475,
+      "assertion_evidences": 10000,
+      "import_batches": 10,
+      "import_records": 10000,
+      "review_events": 8997,
+      "taxon_dossiers": 1300,
+      "study_dossiers": 40,
+      "raw_source_records": 10000
+    }
+  },
+  "benchmark_config": {
+    "warmup_iterations_per_operation": 5,
+    "measured_iterations_per_operation": 30,
+    "operation_timeout_seconds": 60,
+    "docker_stats_interval_seconds": 0.5,
+    "max_total_environment_memory_mb": 4096,
+    "bind_host": "127.0.0.1",
+    "container_memory_limit_mb": 768.0,
+    "container_cpu_limit": 2.0,
+    "compose_file": "docker/compose.yaml",
+    "engine_settings": {
+      "shared_buffers": "192MB",
+      "work_mem": "8MB",
+      "maintenance_work_mem": "64MB",
+      "effective_cache_size": "384MB",
+      "max_connections": 50
+    },
+    "credentials_excluded": true
+  }
+}

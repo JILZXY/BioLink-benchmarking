@@ -1,0 +1,8 @@
+[2026-11-21T04:44:02Z] Iniciando benchmark para mongodb | dataset=synthetic_50000_seed_20261120 | warmup=5 | iters=30
+Conexión: 13.200 ms | versión: 8.0.38
+Carga inicial: 773.564 ms | conteos: {'taxon_dossiers': 1300, 'study_dossiers': 40, 'raw_source_records': 50000}
+Índices creados en: 102.916 ms
+Workload D1_read_taxon_dossier: p50=0.5622 ms, p95=0.6291 ms, correctness=100.0%
+Workload D2_nested_attribute_query: p50=0.8637 ms, p95=1.2204 ms, correctness=100.0%
+Workload D3_versioned_dossier_update: p50=1.8308 ms, p95=2.3198 ms, correctness=100.0%
+Workload D4_bulk_raw_source_insert: p50=1.1208 ms, p95=1.3717 ms, correctness=100.0%

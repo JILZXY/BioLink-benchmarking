@@ -1,0 +1,8 @@
+[2026-11-21T04:41:36Z] Iniciando benchmark para mysql | dataset=synthetic_50000_seed_20261120 | warmup=5 | iters=30
+Conexión: 19.399 ms | versión: 8.4.13
+Carga inicial: 8744.704 ms | conteos: {'source': 40, 'source_version': 40, 'locality': 6, 'taxon': 1300, 'taxon_name': 2600, 'taxon_identifier': 1300, 'interaction_type': 3, 'evidence': 50000, 'interaction_assertion': 50000, 'assertion_evidence': 50000, 'import_batch': 10, 'import_record': 50000, 'review_event': 45071}
+Índices creados en: 727.669 ms
+Workload R1_taxon_search: p50=1.2552 ms, p95=1.5486 ms, correctness=100.0%
+Workload R2_filtered_assertions: p50=1.7458 ms, p95=3.5998 ms, correctness=100.0%
+Workload R3_transactional_assertion_outbox: p50=5.2799 ms, p95=7.9542 ms, correctness=100.0%
+Workload R4_batch_import_insert: p50=4.9353 ms, p95=5.9247 ms, correctness=100.0%

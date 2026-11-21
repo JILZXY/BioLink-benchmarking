@@ -1,0 +1,8 @@
+[2026-11-21T04:36:10Z] Iniciando benchmark para memgraph | dataset=synthetic_10000_seed_20261120 | warmup=5 | iters=30
+Conexión: 20.573 ms | versión: 3.14.0
+Carga inicial: 40411.486 ms | conteos: {'taxa': 1300, 'localities': 6, 'sources': 40, 'evidences': 8475, 'published_assertions': 8475}
+Índices creados en: 16.510 ms
+Workload G1_taxon_neighbors: p50=7.0699 ms, p95=7.6543 ms, correctness=100.0%
+Workload G2_filtered_subgraph: p50=4.0199 ms, p95=4.4789 ms, correctness=100.0%
+Workload G3_distinct_partner_count: p50=6.4348 ms, p95=7.0931 ms, correctness=100.0%
+Workload G4_idempotent_assertion_upsert: p50=3.5972 ms, p95=4.057 ms, correctness=100.0%
