@@ -1,0 +1,33 @@
+# Entorno y secretos locales
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+dist/
+build/
+
+# Datasets sintéticos generados (reproducibles por semilla)
+datasets/synthetic/*
+!datasets/synthetic/.gitkeep
+datasets/manifests/*
+!datasets/manifests/.gitkeep
+
+# Resultados, logs y reportes locales de corridas
+results/raw/*
+!results/raw/.gitkeep
+results/logs/*
+!results/logs/.gitkeep
+results/summaries/*
+!results/summaries/.gitkeep
+reports/*
+!reports/.gitkeep

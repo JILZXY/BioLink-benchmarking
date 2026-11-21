@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=75.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "biolink-benchmarking"
+version = "0.1.0"
+description = "Entorno independiente de benchmarking directo para evaluar seis motores candidatos de BioLink."
+readme = "README.md"
+requires-python = ">=3.11,<3.16"
+dependencies = [
+    "mysql-connector-python>=9.5.0",
+    "psycopg[binary]>=3.2.0",
+    "pymongo>=4.10.0",
+    "httpx>=0.27.0",
+    "neo4j>=5.26.0",
+    "python-dotenv>=1.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+]
+
+[project.scripts]
+biolink-bench = "biolink_bench.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "live: pruebas que requieren un contenedor Docker del motor correspondiente levantado en 127.0.0.1",
+]
