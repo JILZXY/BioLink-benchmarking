@@ -1,0 +1,114 @@
+{
+  "dataset_id": "synthetic_1000_seed_20261120",
+  "dataset_tag": "SYNTHETIC_BENCHMARK",
+  "generator_version": "1.0.0",
+  "seed": 20261120,
+  "target_assertions": 1000,
+  "generated_at_utc": "2026-11-21T04:39:09Z",
+  "parameters": {
+    "seed": 20261120,
+    "target_assertions": 1000,
+    "non_overlapping_scientific_names": true
+  },
+  "entity_counts": {
+    "taxa": 225,
+    "taxon_names": 450,
+    "taxon_identifiers": 225,
+    "localities": 6,
+    "sources": 7,
+    "source_versions": 7,
+    "interaction_types": 3,
+    "evidences": 1000,
+    "assertions": 1000,
+    "published_assertions": 838,
+    "assertion_evidences": 1000,
+    "import_batches": 10,
+    "import_records": 1000,
+    "review_events": 893,
+    "taxon_dossiers": 225,
+    "study_dossiers": 7,
+    "raw_source_records": 1000
+  },
+  "files": {
+    "taxa.jsonl": {
+      "count": 225,
+      "size_bytes": 72859,
+      "sha256": "be700474c798190dda5c87bdbdc26508e7cb57aad20b58aaacac6da3617ca98a"
+    },
+    "taxon_names.jsonl": {
+      "count": 450,
+      "size_bytes": 127704,
+      "sha256": "25a19f712a644a4702e7bf0139dc411d191ca093ef70fa966232c1dacf4c8a2c"
+    },
+    "taxon_identifiers.jsonl": {
+      "count": 225,
+      "size_bytes": 57825,
+      "sha256": "d8a615410b961f089748888695318317b204480cdedfc52b043cd77c372bad90"
+    },
+    "localities.jsonl": {
+      "count": 6,
+      "size_bytes": 2116,
+      "sha256": "2ce28d8be8d92b6c8de080ed73bcc8005391b70e0c116fc4549a97e863dc77d6"
+    },
+    "sources.jsonl": {
+      "count": 7,
+      "size_bytes": 3131,
+      "sha256": "bf60c71d305e8db0cc62672f93aa01911607ffbf6a7dabbff739c62c6b054e2b"
+    },
+    "source_versions.jsonl": {
+      "count": 7,
+      "size_bytes": 3304,
+      "sha256": "94742d441ce7d8c1e4645e6f99a0eb315a376e8eec67675858061728d845f03f"
+    },
+    "interaction_types.jsonl": {
+      "count": 3,
+      "size_bytes": 740,
+      "sha256": "40d5d350d3e6fe5983acab0af58ec25aefcb76cb5c1eba77e95ae5fbe30df34d"
+    },
+    "evidences.jsonl": {
+      "count": 1000,
+      "size_bytes": 502386,
+      "sha256": "c612240de11da0e1c865ee1e0dae98309bc86c777908cf1ed1cbcbd6aeab1227"
+    },
+    "assertions.jsonl": {
+      "count": 1000,
+      "size_bytes": 618092,
+      "sha256": "e0d388f1b7b7696281312567705bad3963a20e8bae983b703acdd300a2cc78db"
+    },
+    "assertion_evidences.jsonl": {
+      "count": 1000,
+      "size_bytes": 135000,
+      "sha256": "757fb84fcf7934a876f1828ff35d5da40d20d5f44d6be27a65ac3b80f1946631"
+    },
+    "import_batches.jsonl": {
+      "count": 10,
+      "size_bytes": 4561,
+      "sha256": "b319e2ecc8a8b49ce6c8871d3397505a4c64e9ad510ead485d6f154fb9a43be7"
+    },
+    "import_records.jsonl": {
+      "count": 1000,
+      "size_bytes": 311945,
+      "sha256": "a897bb2fb26d143cae0c2a8daf69ca4d2bf77a24a579c22a08ebcece40147326"
+    },
+    "review_events.jsonl": {
+      "count": 893,
+      "size_bytes": 219678,
+      "sha256": "e696e4ac9964d82dbfa9a7127ace3ce493285aff992590428f28ed5ae870a2d4"
+    },
+    "taxon_dossiers.jsonl": {
+      "count": 225,
+      "size_bytes": 252323,
+      "sha256": "4ad7b86fd752025f4d748b633f0b10a36d98a0f2ae4640f567ced29a9cbf3664"
+    },
+    "study_dossiers.jsonl": {
+      "count": 7,
+      "size_bytes": 2447,
+      "sha256": "298ad53588bb649235a611c9862335613c61ae2cc9cae4536329dc59884b7e47"
+    },
+    "raw_source_records.jsonl": {
+      "count": 1000,
+      "size_bytes": 734418,
+      "sha256": "a9c8765cd91a5a950765b1370a8ff04ab0d43216aef9cc07f370ecf6e0573163"
+    }
+  }
+}

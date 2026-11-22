@@ -1,0 +1,176 @@
+{
+  "run_id": "20261121T044019Z_bench_mongodb_e8e5d5",
+  "mode": "benchmark",
+  "engine": "mongodb",
+  "model": "document",
+  "dataset_id": "synthetic_1000_seed_20261120",
+  "seed": 20261120,
+  "started_at_utc": "2026-11-21T04:40:19Z",
+  "finished_at_utc": "2026-11-21T04:40:28Z",
+  "timings_ms": {
+    "connection_ms": 27.5172,
+    "schema_ms": 38.0036,
+    "load_ms": 23.9,
+    "index_ms": 41.8272,
+    "cleanup_ms": 16.2033
+  },
+  "storage_bytes": 122880,
+  "engine_info": {
+    "engine": "mongodb",
+    "server_version": "8.0.38",
+    "driver": "pymongo 4.20.1"
+  },
+  "docker_info": {
+    "available": true,
+    "container_name": "biolink-bench-mongodb",
+    "image": "mongo:8.0.38",
+    "image_id": "sha256:479e85ced54ffb8a40dade1dcde2da2a9ae858515b9415e9cc54bfb8f0575d01",
+    "repo_digests": [
+      "mongo@sha256:479e85ced54ffb8a40dade1dcde2da2a9ae858515b9415e9cc54bfb8f0575d01"
+    ],
+    "status": "running",
+    "health_status": "healthy",
+    "oom_killed": false,
+    "mem_limit_bytes": 805306368,
+    "mem_limit_mb": 768.0,
+    "nano_cpus": 2000000000
+  },
+  "docker_resources": {
+    "samples_count": 2,
+    "peak_memory_mib": 407.0,
+    "avg_memory_mib": 406.95,
+    "peak_cpu_pct": 9.94,
+    "avg_cpu_pct": 5.18,
+    "oom_killed": false
+  },
+  "host_info": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64",
+    "python": "3.14.10",
+    "docker": "Docker version 29.9.3, build 5457199"
+  },
+  "operations": {
+    "D1_read_taxon_dossier": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 0.6039,
+      "p95_ms": 0.8996,
+      "max_ms": 1.0721,
+      "min_ms": 0.5408,
+      "mean_ms": 0.6402,
+      "ops_per_sec": 1561.96
+    },
+    "D2_nested_attribute_query": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 0.9813,
+      "p95_ms": 1.3887,
+      "max_ms": 1.4566,
+      "min_ms": 0.8303,
+      "mean_ms": 1.0157,
+      "ops_per_sec": 984.58
+    },
+    "D3_versioned_dossier_update": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 2.1353,
+      "p95_ms": 2.6338,
+      "max_ms": 2.7471,
+      "min_ms": 1.9171,
+      "mean_ms": 2.2064,
+      "ops_per_sec": 453.22
+    },
+    "D4_bulk_raw_source_insert": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 1.3152,
+      "p95_ms": 2.211,
+      "max_ms": 3.718,
+      "min_ms": 1.1418,
+      "mean_ms": 1.4832,
+      "ops_per_sec": 674.23
+    }
+  },
+  "errors": [],
+  "artifacts": {
+    "raw_csv": "results\\raw\\20261121T044019Z_bench_mongodb_e8e5d5.csv",
+    "summary_json": "results\\summaries\\20261121T044019Z_bench_mongodb_e8e5d5.json",
+    "log_file": "results\\logs\\20261121T044019Z_bench_mongodb_e8e5d5.log"
+  },
+  "dataset_integrity": {
+    "manifest_path": "datasets/manifests/synthetic_1000_seed_20261120_manifest.json",
+    "manifest_sha256": "a35e0114457ef4c9690a6ce0f278988e03b27bf52f82cc36b943470e1bc321c0",
+    "file_checksums": {
+      "taxa.jsonl": "be700474c798190dda5c87bdbdc26508e7cb57aad20b58aaacac6da3617ca98a",
+      "taxon_names.jsonl": "25a19f712a644a4702e7bf0139dc411d191ca093ef70fa966232c1dacf4c8a2c",
+      "taxon_identifiers.jsonl": "d8a615410b961f089748888695318317b204480cdedfc52b043cd77c372bad90",
+      "localities.jsonl": "2ce28d8be8d92b6c8de080ed73bcc8005391b70e0c116fc4549a97e863dc77d6",
+      "sources.jsonl": "bf60c71d305e8db0cc62672f93aa01911607ffbf6a7dabbff739c62c6b054e2b",
+      "source_versions.jsonl": "94742d441ce7d8c1e4645e6f99a0eb315a376e8eec67675858061728d845f03f",
+      "interaction_types.jsonl": "40d5d350d3e6fe5983acab0af58ec25aefcb76cb5c1eba77e95ae5fbe30df34d",
+      "evidences.jsonl": "c612240de11da0e1c865ee1e0dae98309bc86c777908cf1ed1cbcbd6aeab1227",
+      "assertions.jsonl": "e0d388f1b7b7696281312567705bad3963a20e8bae983b703acdd300a2cc78db",
+      "assertion_evidences.jsonl": "757fb84fcf7934a876f1828ff35d5da40d20d5f44d6be27a65ac3b80f1946631",
+      "import_batches.jsonl": "b319e2ecc8a8b49ce6c8871d3397505a4c64e9ad510ead485d6f154fb9a43be7",
+      "import_records.jsonl": "a897bb2fb26d143cae0c2a8daf69ca4d2bf77a24a579c22a08ebcece40147326",
+      "review_events.jsonl": "e696e4ac9964d82dbfa9a7127ace3ce493285aff992590428f28ed5ae870a2d4",
+      "taxon_dossiers.jsonl": "4ad7b86fd752025f4d748b633f0b10a36d98a0f2ae4640f567ced29a9cbf3664",
+      "study_dossiers.jsonl": "298ad53588bb649235a611c9862335613c61ae2cc9cae4536329dc59884b7e47",
+      "raw_source_records.jsonl": "a9c8765cd91a5a950765b1370a8ff04ab0d43216aef9cc07f370ecf6e0573163"
+    },
+    "entity_counts": {
+      "taxa": 225,
+      "taxon_names": 450,
+      "taxon_identifiers": 225,
+      "localities": 6,
+      "sources": 7,
+      "source_versions": 7,
+      "interaction_types": 3,
+      "evidences": 1000,
+      "assertions": 1000,
+      "published_assertions": 838,
+      "assertion_evidences": 1000,
+      "import_batches": 10,
+      "import_records": 1000,
+      "review_events": 893,
+      "taxon_dossiers": 225,
+      "study_dossiers": 7,
+      "raw_source_records": 1000
+    }
+  },
+  "benchmark_config": {
+    "warmup_iterations_per_operation": 5,
+    "measured_iterations_per_operation": 30,
+    "operation_timeout_seconds": 60,
+    "docker_stats_interval_seconds": 0.5,
+    "max_total_environment_memory_mb": 4096,
+    "bind_host": "127.0.0.1",
+    "container_memory_limit_mb": 768.0,
+    "container_cpu_limit": 2.0,
+    "compose_file": "docker/compose.yaml",
+    "engine_settings": {
+      "wiredTigerCacheSizeGB": 0.25
+    },
+    "credentials_excluded": true
+  }
+}

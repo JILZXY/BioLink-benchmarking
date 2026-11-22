@@ -1,0 +1,8 @@
+[2026-11-21T04:39:39Z] Iniciando benchmark para postgresql | dataset=synthetic_1000_seed_20261120 | warmup=5 | iters=30
+Conexión: 33.786 ms | versión: 18.7 (Debian 18.7-1.pgdg13+5)
+Carga inicial: 157.200 ms | conteos: {'source': 7, 'source_version': 7, 'locality': 6, 'taxon': 225, 'taxon_name': 450, 'taxon_identifier': 225, 'interaction_type': 3, 'evidence': 1000, 'interaction_assertion': 1000, 'assertion_evidence': 1000, 'import_batch': 10, 'import_record': 1000, 'review_event': 893}
+Índices creados en: 10.501 ms
+Workload R1_taxon_search: p50=0.4532 ms, p95=0.6727 ms, correctness=100.0%
+Workload R2_filtered_assertions: p50=0.7742 ms, p95=1.1736 ms, correctness=100.0%
+Workload R3_transactional_assertion_outbox: p50=2.9696 ms, p95=4.4152 ms, correctness=100.0%
+Workload R4_batch_import_insert: p50=3.563 ms, p95=4.0113 ms, correctness=100.0%

@@ -1,0 +1,198 @@
+name: ${BENCH_PROJECT_NAME:-biolink-benchmarking}
+
+# ==============================================================================
+# BioLink Benchmarking - Orquestación aislada de motores candidatos
+# Reglas operativas:
+#   - Levantar ÚNICAMENTE un perfil a la vez (ejecución estrictamente secuencial).
+#   - Prohibido usar tags :latest.
+#   - Todos los puertos se exponen exclusivamente en 127.0.0.1.
+#   - Volúmenes separados por motor para limpieza independiente.
+#   - Límites experimentales fijados: 768m (Relacional/Documental), 1024m (Grafo).
+# ==============================================================================
+
+services:
+  mysql:
+    image: ${MYSQL_IMAGE:-mysql:8.4.13}
+    container_name: biolink-bench-mysql
+    profiles: ["mysql"]
+    restart: "no"
+    mem_limit: ${MYSQL_MEM_LIMIT:-768m}
+    cpus: ${MYSQL_CPUS:-2.0}
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-biolink_bench}
+      MYSQL_USER: ${MYSQL_USER:-biolink_bench}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Configure MYSQL_PASSWORD en .env}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Configure MYSQL_ROOT_PASSWORD en .env}
+    ports:
+      - "${BENCH_BIND_HOST:-127.0.0.1}:${MYSQL_PORT:-3307}:3306"
+    volumes:
+      - mysql_bench_data:/var/lib/mysql
+      - ./relational/mysql/my.cnf:/etc/mysql/conf.d/biolink.cnf:ro
+    networks:
+      - biolink_bench_net
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+
+  postgresql:
+    image: ${POSTGRES_IMAGE:-postgres:18.7}
+    container_name: biolink-bench-postgresql
+    profiles: ["postgresql"]
+    restart: "no"
+    mem_limit: ${POSTGRES_MEM_LIMIT:-768m}
+    cpus: ${POSTGRES_CPUS:-2.0}
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-biolink_bench}
+      POSTGRES_USER: ${POSTGRES_USER:-biolink_bench}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Configure POSTGRES_PASSWORD en .env}
+    command:
+      - "postgres"
+      - "-c"
+      - "shared_buffers=192MB"
+      - "-c"
+      - "work_mem=8MB"
+      - "-c"
+      - "maintenance_work_mem=64MB"
+      - "-c"
+      - "effective_cache_size=384MB"
+      - "-c"
+      - "max_connections=50"
+    ports:
+      - "${BENCH_BIND_HOST:-127.0.0.1}:${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      # PostgreSQL 18+ almacena el clúster bajo /var/lib/postgresql/<version>/docker
+      - postgresql_bench_data:/var/lib/postgresql
+    networks:
+      - biolink_bench_net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\" -h 127.0.0.1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 15s
+
+  mongodb:
+    image: ${MONGODB_IMAGE:-mongo:8.0.38}
+    container_name: biolink-bench-mongodb
+    profiles: ["mongodb"]
+    restart: "no"
+    mem_limit: ${MONGODB_MEM_LIMIT:-768m}
+    cpus: ${MONGODB_CPUS:-2.0}
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USER:-biolink_bench}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD:?Configure MONGODB_PASSWORD en .env}
+      MONGO_INITDB_DATABASE: ${MONGODB_DB:-biolink_bench}
+    command:
+      - "--wiredTigerCacheSizeGB"
+      - "0.25"
+    ports:
+      - "${BENCH_BIND_HOST:-127.0.0.1}:${MONGODB_PORT:-27018}:27017"
+    volumes:
+      - mongodb_bench_data:/data/db
+    networks:
+      - biolink_bench_net
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "mongosh --quiet -u \"$$MONGO_INITDB_ROOT_USERNAME\" -p \"$$MONGO_INITDB_ROOT_PASSWORD\" --authenticationDatabase admin --eval 'db.adminCommand(\"ping\").ok' | grep -q 1"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 15s
+
+  couchdb:
+    image: ${COUCHDB_IMAGE:-couchdb:3.5.3}
+    container_name: biolink-bench-couchdb
+    profiles: ["couchdb"]
+    restart: "no"
+    mem_limit: ${COUCHDB_MEM_LIMIT:-768m}
+    cpus: ${COUCHDB_CPUS:-2.0}
+    environment:
+      COUCHDB_USER: ${COUCHDB_USER:-biolink_bench}
+      COUCHDB_PASSWORD: ${COUCHDB_PASSWORD:?Configure COUCHDB_PASSWORD en .env}
+    entrypoint:
+      [
+        "/bin/bash",
+        "-c",
+        "printf '[couchdb]\\nsingle_node = true\\n\\n[chttpd]\\nrequire_valid_user_except_for_up = true\\n' > /opt/couchdb/etc/local.d/10-biolink.ini && exec /docker-entrypoint.sh /opt/couchdb/bin/couchdb"
+      ]
+    ports:
+      - "${BENCH_BIND_HOST:-127.0.0.1}:${COUCHDB_PORT:-5985}:5984"
+    volumes:
+      - couchdb_bench_data:/opt/couchdb/data
+    networks:
+      - biolink_bench_net
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:5984/_up >/dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 15s
+
+  neo4j:
+    image: ${NEO4J_IMAGE:-neo4j:2026.10.2-community}
+    container_name: biolink-bench-neo4j
+    profiles: ["neo4j"]
+    restart: "no"
+    mem_limit: ${NEO4J_MEM_LIMIT:-1024m}
+    cpus: ${NEO4J_CPUS:-2.0}
+    environment:
+      NEO4J_AUTH: "${NEO4J_USER:-neo4j}/${NEO4J_PASSWORD:?Configure NEO4J_PASSWORD en .env}"
+      NEO4J_server_memory_heap_initial__size: 256m
+      NEO4J_server_memory_heap_max__size: 384m
+      NEO4J_server_memory_pagecache_size: 256m
+      NEO4J_dbms_usage__report_enabled: "false"
+    ports:
+      - "${BENCH_BIND_HOST:-127.0.0.1}:${NEO4J_BOLT_PORT:-7688}:7687"
+      - "${BENCH_BIND_HOST:-127.0.0.1}:${NEO4J_HTTP_PORT:-7475}:7474"
+    volumes:
+      - neo4j_bench_data:/data
+    networks:
+      - biolink_bench_net
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://127.0.0.1:7474 || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 24
+      start_period: 30s
+
+  memgraph:
+    image: ${MEMGRAPH_IMAGE:-memgraph/memgraph:3.14.0}
+    container_name: biolink-bench-memgraph
+    profiles: ["memgraph"]
+    restart: "no"
+    mem_limit: ${MEMGRAPH_MEM_LIMIT:-1024m}
+    cpus: ${MEMGRAPH_CPUS:-2.0}
+    command:
+      - "--memory-limit=800"
+      - "--log-level=WARNING"
+      - "--also-log-to-stderr=true"
+    ports:
+      - "${BENCH_BIND_HOST:-127.0.0.1}:${MEMGRAPH_BOLT_PORT:-7689}:7687"
+    volumes:
+      - memgraph_bench_data:/var/lib/memgraph
+    networks:
+      - biolink_bench_net
+    healthcheck:
+      test: ["CMD-SHELL", "echo 'RETURN 1;' | mgconsole --host 127.0.0.1 --port 7687 >/dev/null 2>&1 || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 15s
+
+volumes:
+  mysql_bench_data:
+  postgresql_bench_data:
+  mongodb_bench_data:
+  couchdb_bench_data:
+  neo4j_bench_data:
+  memgraph_bench_data:
+
+networks:
+  biolink_bench_net:
+    driver: bridge

@@ -1,0 +1,179 @@
+{
+  "run_id": "20261121T044029Z_bench_couchdb_00d5d2",
+  "mode": "benchmark",
+  "engine": "couchdb",
+  "model": "document",
+  "dataset_id": "synthetic_1000_seed_20261120",
+  "seed": 20261120,
+  "started_at_utc": "2026-11-21T04:40:29Z",
+  "finished_at_utc": "2026-11-21T04:40:40Z",
+  "timings_ms": {
+    "connection_ms": 127.2641,
+    "schema_ms": 65.4589,
+    "load_ms": 339.5135,
+    "index_ms": 26.23,
+    "cleanup_ms": 552.1784
+  },
+  "storage_bytes": 2067380,
+  "engine_info": {
+    "engine": "couchdb",
+    "server_version": "3.5.3",
+    "vendor": "The Apache Software Foundation",
+    "driver": "httpx 0.28.1 (CouchDB native HTTP API)"
+  },
+  "docker_info": {
+    "available": true,
+    "container_name": "biolink-bench-couchdb",
+    "image": "couchdb:3.5.3",
+    "image_id": "sha256:907eab5b7e55ab7cfd241d39b90b2a335ea40bef82acee5a37388c08bf201dda",
+    "repo_digests": [
+      "couchdb@sha256:907eab5b7e55ab7cfd241d39b90b2a335ea40bef82acee5a37388c08bf201dda"
+    ],
+    "status": "running",
+    "health_status": "healthy",
+    "oom_killed": false,
+    "mem_limit_bytes": 805306368,
+    "mem_limit_mb": 768.0,
+    "nano_cpus": 2000000000
+  },
+  "docker_resources": {
+    "samples_count": 3,
+    "peak_memory_mib": 169.4,
+    "avg_memory_mib": 165.73,
+    "peak_cpu_pct": 133.78,
+    "avg_cpu_pct": 72.65,
+    "oom_killed": false
+  },
+  "host_info": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64",
+    "python": "3.14.10",
+    "docker": "Docker version 29.9.3, build 5457199"
+  },
+  "operations": {
+    "D1_read_taxon_dossier": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 2.0318,
+      "p95_ms": 2.8291,
+      "max_ms": 3.5249,
+      "min_ms": 1.6497,
+      "mean_ms": 2.1854,
+      "ops_per_sec": 457.59
+    },
+    "D2_nested_attribute_query": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 15.6969,
+      "p95_ms": 16.9464,
+      "max_ms": 17.1702,
+      "min_ms": 11.2178,
+      "mean_ms": 14.7513,
+      "ops_per_sec": 67.79
+    },
+    "D3_versioned_dossier_update": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 13.0752,
+      "p95_ms": 14.0898,
+      "max_ms": 14.7186,
+      "min_ms": 11.7968,
+      "mean_ms": 13.0416,
+      "ops_per_sec": 76.68
+    },
+    "D4_bulk_raw_source_insert": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 9.0176,
+      "p95_ms": 10.2704,
+      "max_ms": 10.5707,
+      "min_ms": 8.2121,
+      "mean_ms": 9.1871,
+      "ops_per_sec": 108.85
+    }
+  },
+  "errors": [],
+  "artifacts": {
+    "raw_csv": "results\\raw\\20261121T044029Z_bench_couchdb_00d5d2.csv",
+    "summary_json": "results\\summaries\\20261121T044029Z_bench_couchdb_00d5d2.json",
+    "log_file": "results\\logs\\20261121T044029Z_bench_couchdb_00d5d2.log"
+  },
+  "dataset_integrity": {
+    "manifest_path": "datasets/manifests/synthetic_1000_seed_20261120_manifest.json",
+    "manifest_sha256": "a35e0114457ef4c9690a6ce0f278988e03b27bf52f82cc36b943470e1bc321c0",
+    "file_checksums": {
+      "taxa.jsonl": "be700474c798190dda5c87bdbdc26508e7cb57aad20b58aaacac6da3617ca98a",
+      "taxon_names.jsonl": "25a19f712a644a4702e7bf0139dc411d191ca093ef70fa966232c1dacf4c8a2c",
+      "taxon_identifiers.jsonl": "d8a615410b961f089748888695318317b204480cdedfc52b043cd77c372bad90",
+      "localities.jsonl": "2ce28d8be8d92b6c8de080ed73bcc8005391b70e0c116fc4549a97e863dc77d6",
+      "sources.jsonl": "bf60c71d305e8db0cc62672f93aa01911607ffbf6a7dabbff739c62c6b054e2b",
+      "source_versions.jsonl": "94742d441ce7d8c1e4645e6f99a0eb315a376e8eec67675858061728d845f03f",
+      "interaction_types.jsonl": "40d5d350d3e6fe5983acab0af58ec25aefcb76cb5c1eba77e95ae5fbe30df34d",
+      "evidences.jsonl": "c612240de11da0e1c865ee1e0dae98309bc86c777908cf1ed1cbcbd6aeab1227",
+      "assertions.jsonl": "e0d388f1b7b7696281312567705bad3963a20e8bae983b703acdd300a2cc78db",
+      "assertion_evidences.jsonl": "757fb84fcf7934a876f1828ff35d5da40d20d5f44d6be27a65ac3b80f1946631",
+      "import_batches.jsonl": "b319e2ecc8a8b49ce6c8871d3397505a4c64e9ad510ead485d6f154fb9a43be7",
+      "import_records.jsonl": "a897bb2fb26d143cae0c2a8daf69ca4d2bf77a24a579c22a08ebcece40147326",
+      "review_events.jsonl": "e696e4ac9964d82dbfa9a7127ace3ce493285aff992590428f28ed5ae870a2d4",
+      "taxon_dossiers.jsonl": "4ad7b86fd752025f4d748b633f0b10a36d98a0f2ae4640f567ced29a9cbf3664",
+      "study_dossiers.jsonl": "298ad53588bb649235a611c9862335613c61ae2cc9cae4536329dc59884b7e47",
+      "raw_source_records.jsonl": "a9c8765cd91a5a950765b1370a8ff04ab0d43216aef9cc07f370ecf6e0573163"
+    },
+    "entity_counts": {
+      "taxa": 225,
+      "taxon_names": 450,
+      "taxon_identifiers": 225,
+      "localities": 6,
+      "sources": 7,
+      "source_versions": 7,
+      "interaction_types": 3,
+      "evidences": 1000,
+      "assertions": 1000,
+      "published_assertions": 838,
+      "assertion_evidences": 1000,
+      "import_batches": 10,
+      "import_records": 1000,
+      "review_events": 893,
+      "taxon_dossiers": 225,
+      "study_dossiers": 7,
+      "raw_source_records": 1000
+    }
+  },
+  "benchmark_config": {
+    "warmup_iterations_per_operation": 5,
+    "measured_iterations_per_operation": 30,
+    "operation_timeout_seconds": 60,
+    "docker_stats_interval_seconds": 0.5,
+    "max_total_environment_memory_mb": 4096,
+    "bind_host": "127.0.0.1",
+    "container_memory_limit_mb": 768.0,
+    "container_cpu_limit": 2.0,
+    "compose_file": "docker/compose.yaml",
+    "engine_settings": {
+      "single_node": true,
+      "require_valid_user_except_for_up": true,
+      "index_type": "Mango"
+    },
+    "credentials_excluded": true
+  }
+}

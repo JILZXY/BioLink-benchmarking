@@ -1,0 +1,8 @@
+[2026-11-21T04:40:48Z] Iniciando benchmark para neo4j | dataset=synthetic_1000_seed_20261120 | warmup=5 | iters=30
+Conexión: 110.278 ms | versión: 2026.10.2
+Carga inicial: 1951.320 ms | conteos: {'taxa': 225, 'localities': 6, 'sources': 7, 'evidences': 838, 'published_assertions': 838}
+Índices creados en: 124.636 ms
+Workload G1_taxon_neighbors: p50=8.5829 ms, p95=16.0739 ms, correctness=100.0%
+Workload G2_filtered_subgraph: p50=5.3691 ms, p95=9.9582 ms, correctness=100.0%
+Workload G3_distinct_partner_count: p50=4.8566 ms, p95=6.0499 ms, correctness=100.0%
+Workload G4_idempotent_assertion_upsert: p50=5.9681 ms, p95=12.7174 ms, correctness=100.0%

@@ -1,0 +1,17 @@
+{
+  "dataset_id": "scientific_fixture_v1",
+  "dataset_tag": "SCIENTIFIC_FIXTURE",
+  "generated_from": [
+    "docs/01_etapa_1_biolink.md",
+    "docs/01_matriz_evidencias_biolink.csv"
+  ],
+  "file": "biolink_scientific_fixture.json",
+  "sha256": "f4b2ec408f31624723912ad0e34d82880d84c105f967d2b827619368494bed73",
+  "size_bytes": 24158,
+  "counts": {
+    "sources": 2,
+    "localities": 2,
+    "taxa": 32,
+    "assertions": 21
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "run_id": "20261121T044111Z_bench_memgraph_8e3dac",
+  "mode": "benchmark",
+  "engine": "memgraph",
+  "model": "graph",
+  "dataset_id": "synthetic_1000_seed_20261120",
+  "seed": 20261120,
+  "started_at_utc": "2026-11-21T04:41:11Z",
+  "finished_at_utc": "2026-11-21T04:41:20Z",
+  "timings_ms": {
+    "connection_ms": 2.4077,
+    "schema_ms": 41.8644,
+    "load_ms": 645.5035,
+    "index_ms": 7.4806,
+    "cleanup_ms": 6.5015
+  },
+  "storage_bytes": 109156761,
+  "engine_info": {
+    "engine": "memgraph",
+    "server_version": "3.14.0",
+    "driver": "neo4j 6.4.1 (Bolt client for Memgraph)"
+  },
+  "docker_info": {
+    "available": true,
+    "container_name": "biolink-bench-memgraph",
+    "image": "memgraph/memgraph:3.14.0",
+    "image_id": "sha256:a732421217951066e42f5749111bc3d0c7b51b12c756be04850d4dafa84cc05e",
+    "repo_digests": [
+      "memgraph/memgraph@sha256:a732421217951066e42f5749111bc3d0c7b51b12c756be04850d4dafa84cc05e"
+    ],
+    "status": "running",
+    "health_status": "healthy",
+    "oom_killed": false,
+    "mem_limit_bytes": 1073741824,
+    "mem_limit_mb": 1024.0,
+    "nano_cpus": 2000000000
+  },
+  "docker_resources": {
+    "samples_count": 2,
+    "peak_memory_mib": 125.9,
+    "avg_memory_mib": 117.15,
+    "peak_cpu_pct": 86.62,
+    "avg_cpu_pct": 43.48,
+    "oom_killed": false
+  },
+  "host_info": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64",
+    "python": "3.14.10",
+    "docker": "Docker version 29.9.3, build 5457199"
+  },
+  "operations": {
+    "G1_taxon_neighbors": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 1.7528,
+      "p95_ms": 2.2963,
+      "max_ms": 2.4904,
+      "min_ms": 1.4045,
+      "mean_ms": 1.855,
+      "ops_per_sec": 539.09
+    },
+    "G2_filtered_subgraph": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 1.6547,
+      "p95_ms": 2.4752,
+      "max_ms": 3.1358,
+      "min_ms": 1.0748,
+      "mean_ms": 1.7846,
+      "ops_per_sec": 560.35
+    },
+    "G3_distinct_partner_count": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 1.4234,
+      "p95_ms": 1.7886,
+      "max_ms": 20.6053,
+      "min_ms": 1.2574,
+      "mean_ms": 2.0923,
+      "ops_per_sec": 477.95
+    },
+    "G4_idempotent_assertion_upsert": {
+      "count": 30,
+      "warmup_count": 5,
+      "ok_count": 30,
+      "valid_count": 30,
+      "error_count": 0,
+      "timeout_count": 0,
+      "correctness_rate_pct": 100.0,
+      "p50_ms": 1.4444,
+      "p95_ms": 2.0567,
+      "max_ms": 2.496,
+      "min_ms": 1.2144,
+      "mean_ms": 1.5291,
+      "ops_per_sec": 654.0
+    }
+  },
+  "errors": [],
+  "artifacts": {
+    "raw_csv": "results\\raw\\20261121T044111Z_bench_memgraph_8e3dac.csv",
+    "summary_json": "results\\summaries\\20261121T044111Z_bench_memgraph_8e3dac.json",
+    "log_file": "results\\logs\\20261121T044111Z_bench_memgraph_8e3dac.log"
+  },
+  "dataset_integrity": {
+    "manifest_path": "datasets/manifests/synthetic_1000_seed_20261120_manifest.json",
+    "manifest_sha256": "a35e0114457ef4c9690a6ce0f278988e03b27bf52f82cc36b943470e1bc321c0",
+    "file_checksums": {
+      "taxa.jsonl": "be700474c798190dda5c87bdbdc26508e7cb57aad20b58aaacac6da3617ca98a",
+      "taxon_names.jsonl": "25a19f712a644a4702e7bf0139dc411d191ca093ef70fa966232c1dacf4c8a2c",
+      "taxon_identifiers.jsonl": "d8a615410b961f089748888695318317b204480cdedfc52b043cd77c372bad90",
+      "localities.jsonl": "2ce28d8be8d92b6c8de080ed73bcc8005391b70e0c116fc4549a97e863dc77d6",
+      "sources.jsonl": "bf60c71d305e8db0cc62672f93aa01911607ffbf6a7dabbff739c62c6b054e2b",
+      "source_versions.jsonl": "94742d441ce7d8c1e4645e6f99a0eb315a376e8eec67675858061728d845f03f",
+      "interaction_types.jsonl": "40d5d350d3e6fe5983acab0af58ec25aefcb76cb5c1eba77e95ae5fbe30df34d",
+      "evidences.jsonl": "c612240de11da0e1c865ee1e0dae98309bc86c777908cf1ed1cbcbd6aeab1227",
+      "assertions.jsonl": "e0d388f1b7b7696281312567705bad3963a20e8bae983b703acdd300a2cc78db",
+      "assertion_evidences.jsonl": "757fb84fcf7934a876f1828ff35d5da40d20d5f44d6be27a65ac3b80f1946631",
+      "import_batches.jsonl": "b319e2ecc8a8b49ce6c8871d3397505a4c64e9ad510ead485d6f154fb9a43be7",
+      "import_records.jsonl": "a897bb2fb26d143cae0c2a8daf69ca4d2bf77a24a579c22a08ebcece40147326",
+      "review_events.jsonl": "e696e4ac9964d82dbfa9a7127ace3ce493285aff992590428f28ed5ae870a2d4",
+      "taxon_dossiers.jsonl": "4ad7b86fd752025f4d748b633f0b10a36d98a0f2ae4640f567ced29a9cbf3664",
+      "study_dossiers.jsonl": "298ad53588bb649235a611c9862335613c61ae2cc9cae4536329dc59884b7e47",
+      "raw_source_records.jsonl": "a9c8765cd91a5a950765b1370a8ff04ab0d43216aef9cc07f370ecf6e0573163"
+    },
+    "entity_counts": {
+      "taxa": 225,
+      "taxon_names": 450,
+      "taxon_identifiers": 225,
+      "localities": 6,
+      "sources": 7,
+      "source_versions": 7,
+      "interaction_types": 3,
+      "evidences": 1000,
+      "assertions": 1000,
+      "published_assertions": 838,
+      "assertion_evidences": 1000,
+      "import_batches": 10,
+      "import_records": 1000,
+      "review_events": 893,
+      "taxon_dossiers": 225,
+      "study_dossiers": 7,
+      "raw_source_records": 1000
+    }
+  },
+  "benchmark_config": {
+    "warmup_iterations_per_operation": 5,
+    "measured_iterations_per_operation": 30,
+    "operation_timeout_seconds": 60,
+    "docker_stats_interval_seconds": 0.5,
+    "max_total_environment_memory_mb": 4096,
+    "bind_host": "127.0.0.1",
+    "container_memory_limit_mb": 1024.0,
+    "container_cpu_limit": 2.0,
+    "compose_file": "docker/compose.yaml",
+    "engine_settings": {
+      "internal_memory_limit_mb": 800,
+      "log_level": "WARNING"
+    },
+    "credentials_excluded": true
+  }
+}

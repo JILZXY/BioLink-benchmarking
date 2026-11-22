@@ -1,0 +1,9 @@
+[2026-11-21T04:45:07Z] Iniciando benchmark para neo4j | dataset=synthetic_50000_seed_20261120 | warmup=5 | iters=30
+Conexión: 112.402 ms | versión: 2026.10.2
+Carga inicial: 13839.914 ms | conteos: {'taxa': 1300, 'localities': 6, 'sources': 40, 'evidences': 42523, 'published_assertions': 42523}
+Índices creados en: 55.445 ms
+Workload G1_taxon_neighbors: p50=54.5967 ms, p95=58.3998 ms, correctness=100.0%
+Workload G2_filtered_subgraph: p50=12.9444 ms, p95=15.9753 ms, correctness=100.0%
+Workload G3_distinct_partner_count: p50=70.8017 ms, p95=78.25 ms, correctness=100.0%
+Workload G4_idempotent_assertion_upsert: p50=4.8231 ms, p95=9.5046 ms, correctness=100.0%
+ERROR fatal durante benchmark: TransientError: {neo4j_code: Neo.TransientError.General.MemoryPoolOutOfMemoryError} {message: The allocation of an extra 2.0 MiB would use more than the limit 268.8 MiB. Currently using 267.0 MiB. dbms.memory.transaction.total.max threshold reached} {gql_status: 51N72} {gql_status_description: error: system configuration or operation exception - memory pool out of memory. Failed to allocate memory in a memory pool. See dbms.memory.transaction.total.max in the neo4j.conf file.}

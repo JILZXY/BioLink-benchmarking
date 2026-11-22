@@ -1,0 +1,8 @@
+[2026-11-21T04:44:12Z] Iniciando benchmark para couchdb | dataset=synthetic_50000_seed_20261120 | warmup=5 | iters=30
+Conexión: 110.984 ms | versión: 3.5.3
+Carga inicial: 5015.910 ms | conteos: {'taxon_dossiers': 1300, 'study_dossiers': 40, 'raw_source_records': 50000}
+Índices creados en: 40.785 ms
+Workload D1_read_taxon_dossier: p50=3.5542 ms, p95=5.0176 ms, correctness=100.0%
+Workload D2_nested_attribute_query: p50=12.432 ms, p95=66.2068 ms, correctness=100.0%
+Workload D3_versioned_dossier_update: p50=17.6696 ms, p95=43.9438 ms, correctness=100.0%
+Workload D4_bulk_raw_source_insert: p50=11.9301 ms, p95=32.0209 ms, correctness=100.0%
